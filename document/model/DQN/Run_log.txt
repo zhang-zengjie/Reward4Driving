@@ -1,3 +1,0 @@
-Total training time: 00:07:00.18
-Toal epoch:100
-Csv file name:DQN
