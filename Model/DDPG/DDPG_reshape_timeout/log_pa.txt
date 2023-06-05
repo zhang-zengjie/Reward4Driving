@@ -1,0 +1,26 @@
+-----------------------Var Config-----------------------
+Episode:1000
+max_ep_len:1200
+BUFFER_SIZE:10000000
+BATCH_SIZE:64
+GAMMA:0.95
+TAU:0.001
+LR_ACTOR:0.0001
+LR_CRITIC:0.0003
+WEIGHT_DECAY:0.0001
+-----------------------Var Env-----------------------
+env:<CarRacing<CarRacing-v0>>
+action_space:Discrete(5)
+observation_space:Box(96, 96)
+reward_range:(-inf, inf)
+metadata:{'render.modes': ['human', 'rgb_array', 'state_pixels', 'POS'], 'video.frames_per_second': 50}
+_max_episode_seconds:None
+_max_episode_steps:1000
+_elapsed_steps:0
+_episode_started_at:None
+-----------------------Var File-----------------------
+Directroy: document\model\DDPG4\DDPG_reshape_timeout,
+SOFT_NEG_REWARD = 0.1, 
+Out side: -200, 
+reward += (((left | right) & not_visited).sum()+0.4/ factor),
+Timeout_ true

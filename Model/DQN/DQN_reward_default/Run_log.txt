@@ -1,0 +1,3 @@
+Total training time: 07:43:11.53
+Toal epoch:1500
+Csv file name:DQN_reshape

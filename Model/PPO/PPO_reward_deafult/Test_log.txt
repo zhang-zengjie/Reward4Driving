@@ -1,0 +1,2 @@
+Total training time: 00:02:09.46
+Toal epoch:15

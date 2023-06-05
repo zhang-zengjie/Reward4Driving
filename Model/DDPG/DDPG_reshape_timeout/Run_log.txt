@@ -1,0 +1,3 @@
+Total training time: 06:46:39.06
+Toal epoch:1000
+Csv file name:DDPG_soft_reshape

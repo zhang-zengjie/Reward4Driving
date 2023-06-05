@@ -1,0 +1,33 @@
+-----------------------Var Config-----------------------
+save_ep:500
+print_ep:50
+n_episodes:1500
+seed:32
+batch_size:64
+buffer_size:10000000
+update_every:4
+gamma:0.95
+tau:0.001
+lr:0.0001
+max_t:700
+eps_start:1.0
+eps_end:0.001
+eps_decay:0.995405417351527
+state_size:(96, 96)
+action_size:5
+-----------------------Var Env-----------------------
+env:<CarRacing<CarRacing-v0>>
+action_space:Discrete(5)
+observation_space:Box(96, 96)
+reward_range:(-inf, inf)
+metadata:{'render.modes': ['human', 'rgb_array', 'state_pixels', 'POS'], 'video.frames_per_second': 50}
+_max_episode_seconds:None
+_max_episode_steps:1000
+_elapsed_steps:0
+_episode_started_at:None
+-----------------------Var File-----------------------
+Directroy: document\model\DQN3\DQN_reward_default,
+SOFT_NEG_REWARD = 0.1, 
+Out side: -100, 
+reward += (((left | right) & not_visited).sum()/ 1),
+check_timeout = False, False
