@@ -60,8 +60,8 @@ class Config_DDPG:
 
 class Config_DQN:
 
-    def __init__(self, save_ep=500,print_ep = 1,n_episodes= 100,SEED=32, BATCHSIZE=64, BUFFERSIZE=int(1e7), UPDATEEVERY=4, GAMMA=0.95, TAU=1e-3, LR= 1e-4,max_t=700, eps_start=1.0, eps_end=0.01, eps_decay=0.996) -> None:
-        self.save_ep = save_ep
+    def __init__(self, freq_save_epi=4,print_ep = 1,n_episodes= 100,SEED=32, BATCHSIZE=64, BUFFERSIZE=int(1e7), UPDATEEVERY=4, GAMMA=0.95, TAU=1e-3, LR= 1e-4,max_t=700, eps_start=1.0, eps_end=0.01, eps_decay=0.996) -> None:
+        self.freq_save_epi = freq_save_epi
         self.print_ep = print_ep
         self.n_episodes = n_episodes
         self.seed = SEED
