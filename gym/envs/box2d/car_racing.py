@@ -162,6 +162,7 @@ def original_reward_callback(env):
     return reward, reward, done
 
 def default_reward_callback(env):
+    outside = 0
     reward = -SOFT_NEG_REWARD
 
     left  = env.info['count_left_delay']  > 0
@@ -205,6 +206,11 @@ def default_reward_callback(env):
 
     done = False
 
+    # if outside the track
+    if env._is_outside():
+        outside = 1 # counter for the bump
+    # else: print("INSIDE", '\n')
+
     if env.reward > 3000 or env.reward < -400:
         # if too good or too bad
         done = True
@@ -219,7 +225,7 @@ def default_reward_callback(env):
             done = True
             reward -= HARD_NEG_REWARD
 
-    return reward, full_reward, done
+    return reward, full_reward, done, outside
 
 class FrictionDetector(contactListener):
     def __init__(self, env):
@@ -396,6 +402,7 @@ class CarRacing(gym.Env, EzPickle):
         self.full_reward = 0.0
         self.prev_reward = 0.0
         self.highest_reward = 0.0
+        self.bumps = 0
         self._current_nodes = {} # A dict of dicts, dict[id][lane]=direction you can be in more than one tile at the same time, e.g. intersections
         self._next_nodes = [] # A list of lists of dictionaries
         self.possible_hard_actions = ("NOTHING", "LEFT", "RIGHT", "ACCELERATE", "BREAK")
@@ -1634,6 +1641,7 @@ class CarRacing(gym.Env, EzPickle):
         self.reward = 0.0
         self.full_reward = 0.0
         self.highest_reward = 0.0
+        self.bumps = 0.0
         self.last_touch_with_track = 0.0
         self.prev_reward = 0.0
         self.tile_visited_count = 0
@@ -1716,10 +1724,15 @@ class CarRacing(gym.Env, EzPickle):
         self._update_state(self.render("state_pixels"))
         step_reward = 0
         full_step_reward = 0
+        bump = 0
         done = False
+
         if action is not None:
-            step_reward,full_step_reward,done = self.reward_fn(self)
-        
+            step_reward,full_step_reward,done, bump = self.reward_fn(self)
+
+        if action is None:
+            step_reward,full_step_reward,done, bump = self.reward_fn(self)
+
         self.car.fuel_spent = 0.0
 
         self.reward += step_reward
@@ -1728,7 +1741,7 @@ class CarRacing(gym.Env, EzPickle):
         if self.auto_render:
             self.render()
 
-        return self.state, step_reward, done, {}
+        return self.state, step_reward, done, bump
 
     def _render_additional_objects(self):
         """
