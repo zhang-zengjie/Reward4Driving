@@ -1,1 +1,9 @@
-Episode1 (survive time): 00:00:05.32
+Episode1 (survive time): 00:00:31.92
+Episode2 (survive time): 00:00:05.18
+Episode3 (survive time): 00:00:32.13
+Episode4 (survive time): 00:00:19.21
+Episode5 (survive time): 00:00:00.23
+Total Test time (survive time): 00:01:28.68
+Toal epoch:5
+Bump instances on the track:64
+Bump instances of total: 64

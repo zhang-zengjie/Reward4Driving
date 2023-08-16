@@ -162,7 +162,6 @@ def original_reward_callback(env):
     return reward, reward, done
 
 def default_reward_callback(env):
-    outside = 0
     reward = -SOFT_NEG_REWARD
 
     left  = env.info['count_left_delay']  > 0
@@ -204,18 +203,22 @@ def default_reward_callback(env):
 
     env._update_obstacles_info()
 
-    done = False
-
-    # if outside the track
-    if env._is_outside():
-        outside = 1
-    elif env._out_right_track() or env._out_left_track():
-        outside = 1 # counter for the right bump
-    # elif env._out_left_track():
-    #     outside = 1 # counter for the right bump
-    # else: outside = 0
-    # else: print("INSIDE", '\n')
     
+    outside = 0
+    # if outside the track
+    # if env._is_outside():
+    #     outside = 1
+    # else: outside = 0
+    
+    if env._out_track():
+        outside = 1 # counter for the right bump
+    # else: outside = 0
+    
+    # if env._out_left_track():
+    #     outside = 1
+    # else: outside = 0
+    
+    done = False
 
     if env.reward > 3000 or env.reward < -400:
         # if too good or too bad
@@ -565,23 +568,25 @@ class CarRacing(gym.Env, EzPickle):
             return True
         else:
             return False
-    
-    
-   
-    def _out_right_track(self):
+
+    def _out_track(self):
         right = self.info['count_right'] > 0
-        if right.sum() > 0:
-        # if right.sum() > 0 and left.sum() == 0:
+        left  = self.info['count_left']  > 0
+        right_ = self.info['count_right_delay']!=0
+        left_ = self.info['count_right_delay']!= 0
+        if (right_|left_).sum() != 0:            
+            print(f"right_delay: {right_.sum()}, left_delay:{left_.sum()}\n")     
+        if (left|right).sum() == 0:
+            return True
+        elif right.sum() == 0 and left.sum() > 2 and left.sum() < 4:
+            print(f"Left:{left.sum()}\n")
+            return True
+        elif left.sum() > 4 and right.sum() > 0 :
+            print(f"Right: {right.sum()}\n")
             return True
         else:
             return False
-        
-    def _out_left_track(self):
-        left = self.info['count_left'] > 0
-        if left.sum() > 0:
-            return True
-        else:
-            return False
+
         
     def check_outside(self,reward,done):
         if self._is_outside():
