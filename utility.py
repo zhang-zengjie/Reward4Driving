@@ -85,3 +85,17 @@ def score_save(score,averagescore,file_name,path, print_=False):
         return print('file save at :', path, f'file name: score_{file_name}.csv')
     else:
         return
+
+def count_impulses(signal_list):
+    count = 0
+    in_impulse = False
+
+    for value in signal_list:
+        if value == 1:
+            if not in_impulse:
+                in_impulse = True
+                count += 1
+        else:
+            in_impulse = False
+
+    return count

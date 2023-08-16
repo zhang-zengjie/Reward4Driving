@@ -208,8 +208,14 @@ def default_reward_callback(env):
 
     # if outside the track
     if env._is_outside():
-        outside = 1 # counter for the bump
+        outside = 1
+    elif env._out_right_track() or env._out_left_track():
+        outside = 1 # counter for the right bump
+    # elif env._out_left_track():
+    #     outside = 1 # counter for the right bump
+    # else: outside = 0
     # else: print("INSIDE", '\n')
+    
 
     if env.reward > 3000 or env.reward < -400:
         # if too good or too bad
@@ -559,7 +565,24 @@ class CarRacing(gym.Env, EzPickle):
             return True
         else:
             return False
-
+    
+    
+   
+    def _out_right_track(self):
+        right = self.info['count_right'] > 0
+        if right.sum() > 0:
+        # if right.sum() > 0 and left.sum() == 0:
+            return True
+        else:
+            return False
+        
+    def _out_left_track(self):
+        left = self.info['count_left'] > 0
+        if left.sum() > 0:
+            return True
+        else:
+            return False
+        
     def check_outside(self,reward,done):
         if self._is_outside():
             # In case it is outside the track 

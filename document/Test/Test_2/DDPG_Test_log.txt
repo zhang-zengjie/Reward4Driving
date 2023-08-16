@@ -1,12 +1,1 @@
-Episode1 (survive time): 00:00:07.61
-Episode2 (survive time): 00:00:10.24
-Episode3 (survive time): 00:00:07.63
-Episode4 (survive time): 00:00:12.07
-Episode5 (survive time): 00:00:07.20
-Episode6 (survive time): 00:00:04.04
-Episode7 (survive time): 00:00:03.83
-Episode8 (survive time): 00:00:00.18
-Episode9 (survive time): 00:00:03.35
-Episode10 (survive time): 00:00:06.39
-Total Test time (survive time): 00:01:02.55
-Toal epoch:10
+Episode1 (survive time): 00:00:05.32
