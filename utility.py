@@ -99,3 +99,17 @@ def count_impulses(signal_list):
             in_impulse = False
 
     return count
+
+def count_edgezone(signal_list, gap_threshold):
+    """Count the number of edge zone in the signal list."""
+    count = 0
+    zero_count = 0
+
+    for value in signal_list:
+        if value == 0.2:
+            if zero_count >= gap_threshold:
+                count += 1
+                zero_count = 0
+        else:
+            zero_count += 1
+    return count

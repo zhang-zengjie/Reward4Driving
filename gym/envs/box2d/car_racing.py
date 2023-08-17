@@ -205,18 +205,25 @@ def default_reward_callback(env):
 
     
     outside = 0
-    # if outside the track
-    # if env._is_outside():
-    #     outside = 1
-    # else: outside = 0
+
+    if env._out_left_track():
+        outside = 0.2 # counter for the left bump
+        # print(f"Left_outside \n")
+    elif env._out_right_track():
+        outside = 0.2 # counter for the right bump
+        # print(f"Right_outside \n")
+    elif env._is_outside():
+        outside = 1 # counter for out of track
+
+    else:
+        # print(f"Inside \n")
+        outside = 0
     
-    if env._out_track():
-        outside = 1 # counter for the right bump
-    # else: outside = 0
-    
-    # if env._out_left_track():
-    #     outside = 1
-    # else: outside = 0
+    # if env._out_track():
+    #     outside = 1 # counter for the right bump
+    # elif env._is_outside() == 0.2:
+    #     print(f"Left_outside")
+    #     outside = 0.2 # counter for the left bump
     
     done = False
 
@@ -569,23 +576,41 @@ class CarRacing(gym.Env, EzPickle):
         else:
             return False
 
-    def _out_track(self):
+    def _out_left_track(self):
         right = self.info['count_right'] > 0
         left  = self.info['count_left']  > 0
-        right_ = self.info['count_right_delay']!=0
-        left_ = self.info['count_right_delay']!= 0
-        if (right_|left_).sum() != 0:            
-            print(f"right_delay: {right_.sum()}, left_delay:{left_.sum()}\n")     
-        if (left|right).sum() == 0:
-            return True
-        elif right.sum() == 0 and left.sum() > 2 and left.sum() < 4:
-            print(f"Left:{left.sum()}\n")
-            return True
-        elif left.sum() > 4 and right.sum() > 0 :
-            print(f"Right: {right.sum()}\n")
+        if right.sum() == 0 and left.sum() > 2 and left.sum() < 4:
             return True
         else:
             return False
+    
+    def _out_right_track(self):
+        right = self.info['count_right'] > 0
+        left  = self.info['count_left']  > 0
+        if left.sum() > 4 or right.sum() > 0:
+            return True
+        else:
+            return False
+
+
+    # def _out_track(self):
+    #     right = self.info['count_right'] > 0
+    #     left  = self.info['count_left']  > 0
+    #     right_ = self.info['count_right_delay']!=0
+    #     left_ = self.info['count_right_delay']!= 0
+    #     if (right_|left_).sum() != 0:            
+    #         print(f"right_delay: {right_.sum()}, left_delay:{left_.sum()}\n")     
+    #     if (left|right).sum() == 0:
+    #         return True
+    #     elif right.sum() == 0 and left.sum() > 2 and left.sum() < 4:
+    #         print(f"Left:{left.sum()}\n")
+    #         return True
+    #     elif left.sum() > 4 or right.sum() > 0 :
+    #         print(f"The other turn Left:{left.sum()} and Right: {right.sum()}\n")
+    #         return True
+    #     else:
+    #         # print(f"no bump, Left:{left.sum()} and Right: {right.sum()}\n")
+    #         return False
 
         
     def check_outside(self,reward,done):
