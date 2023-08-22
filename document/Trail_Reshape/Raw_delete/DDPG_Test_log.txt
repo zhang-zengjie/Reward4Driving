@@ -1,0 +1,7 @@
+Episode1 (survive time): 00:00:01.37
+Episode2 (survive time): 00:00:03.37
+Episode3 (survive time): 00:00:01.42
+Total Test time (survive time): 00:00:06.16
+Toal epoch:3
+Bump instances of total: 9
+Bump to edge zone 9

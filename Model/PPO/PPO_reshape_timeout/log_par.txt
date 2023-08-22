@@ -1,0 +1,37 @@
+-----------------------Var Config-----------------------
+has_continuous_action_space:False
+max_ep_len:1200
+max_training_timesteps:900000
+print_freq:1200
+log_freq:2400
+save_model_freq:500
+action_std:0.6
+action_std_decay_rate:0.05
+min_action_std:0.1
+action_std_decay_freq:250000
+update_timestep:4800
+K_epochs:30
+eps_clip:0.2
+gamma:0.95
+lr_actor:0.0001
+lr_critic:0.0003
+random_seed:0
+action_std_init:0.6
+state_dim:(96, 96)
+action_dim:5
+-----------------------Var Env-----------------------
+env:<CarRacing<CarRacing-v0>>
+action_space:Discrete(5)
+observation_space:Box(96, 96)
+reward_range:(-inf, inf)
+metadata:{'render.modes': ['human', 'rgb_array', 'state_pixels', 'POS'], 'video.frames_per_second': 50}
+_max_episode_seconds:None
+_max_episode_steps:1000
+_elapsed_steps:0
+_episode_started_at:None
+-----------------------Var File-----------------------
+Directroy: document\model\PPO5\PPO_reshape_timeout,
+SOFT_NEG_REWARD = 0.1, 
+Out side: -200, 
+reward += (((left | right) & not_visited).sum()+0.4/ factor),
+Timeout_ true

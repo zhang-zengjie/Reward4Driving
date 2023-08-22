@@ -1,0 +1,8 @@
+numpy>=1.10.4
+requests>=2.0
+six
+pyglet==1.5.27
+scipy>=0.17.1
+opencv-python
+Box2D
+tqdm==4.64.1
