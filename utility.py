@@ -86,6 +86,16 @@ def score_save(score,averagescore,file_name,path, print_=False):
     else:
         return
 
+def score_action_save(action,score,averagescore,file_name,path, print_=False):
+    """simple save scores to csv as given para"""
+    Final ={'Score': score,'Averagescores':averagescore, 'Action':action}
+    df = pd.DataFrame.from_dict(Final)
+    df.to_csv((path/f"score_{file_name}.csv"))
+    if print_:
+        return print('file save at :', path, f'file name: score_{file_name}.csv')
+    else:
+        return
+
 def count_impulses(signal_list):
     count = 0
     in_impulse = False
