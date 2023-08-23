@@ -24,7 +24,7 @@ According to the review, there is still a lack of evaluation with a fair standar
 We think that the agent has a good strategy of being inside the track and can survive longer during the playing round by showing that the game is less likely to be terminated due to out of the track. In addition, the agent can drive smoothly so that it is less frequently turning angles while remaining on the track. We propose the evaluation method by counting the number of out of track and the number of touching the track's edge. We consider an agent cannot drive stable when it consistently turns driving directions avoiding out of the track near the edge. 
 The lower the number of out-of-track and driving stable, the better the strategy of the agent. <br />
 
-## Two parameters to evaluate the agent's strategy
+### Two parameters to evaluate the agent's strategy
 We want these two factors as low as possible.
 
 * Out of the track.
