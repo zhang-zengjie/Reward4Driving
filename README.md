@@ -1,6 +1,6 @@
 # Introduction
 
-**Authors:**Lin-Chi Wu (l.wu@student.tue.nl), Zengjie Zhang (z.zhang3@tue.nl)
+**Authors**: Lin-Chi Wu (l.wu@student.tue.nl), Zengjie Zhang (z.zhang3@tue.nl)
 
 This git repository is a storage of coding and demonstrating for reinforcement learning with risk awareness.
 
