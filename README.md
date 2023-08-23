@@ -1,5 +1,8 @@
-# iecon_2023_rl_reward_shaping
-Hello, this git repository is a storage of coding and demonstrating for reinforcement learning with risk awareness.
+# Introduction
+
+**Authors:**Lin-Chi Wu (l.wu@student.tue.nl), Zengjie Zhang (z.zhang3@tue.nl)
+
+This git repository is a storage of coding and demonstrating for reinforcement learning with risk awareness.
 
 ## Environment and setup
 * The running program is running with python environment. The sugestted python installed base: `Python 3.8.15`.
