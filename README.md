@@ -31,5 +31,6 @@ We want these two factors as low as possible.
 * The instance of the agent approaching the edge zone.
 
 ![Nearness of edge zone and out of track](./document/Car_near_edge.png)
+
 *The edge zone area the place is between the green area and the yellow dash line.*
 
