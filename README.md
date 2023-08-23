@@ -1,4 +1,4 @@
-## Risk-Aware Reward Shaping of Reinforcement Learning Agents for Autonomous Driving
+# Risk-Aware Reward Shaping of Reinforcement Learning Agents for Autonomous Driving
 
 **Authors**: Lin-Chi Wu (l.wu@student.tue.nl), Zengjie Zhang (z.zhang3@tue.nl)
 
