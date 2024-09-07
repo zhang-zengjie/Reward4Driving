@@ -1,8 +1,10 @@
 # Risk-Aware Reward Shaping of Reinforcement Learning Agents for Autonomous Driving
 
-**Authors**: Lin-Chi Wu (l.wu@student.tue.nl), Zengjie Zhang (z.zhang3@tue.nl)
+**Author**: **Lin-Chi Wu** (l.wu@student.tue.nl)
 
-This git repository is a storage of coding and demonstrating for reinforcement learning with risk awareness.
+This git repository contains the programs for risk-aware reinforcement learning for autonomous driving. It is a supplementary for the following publication,
+
+**Wu, Lin-Chi, Zengjie Zhang, Sofie Haesaert, Zhiqiang Ma, and Zhiyong Sun. "Risk-aware reward shaping of reinforcement learning agents for autonomous driving." In IECON 2023-49th Annual Conference of the IEEE Industrial Electronics Society, pp. 1-6. IEEE, 2023.**
 
 ### Environment and setup
 * The running program is running with a Python environment. The suggested Python installed base: `Python 3.8.15`.
